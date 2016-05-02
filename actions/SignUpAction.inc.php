@@ -43,6 +43,8 @@ $nick = $_POST['signUpLogin'];
 $pass = $_POST['signUpPassword'];
 $newask = $connexion->prepare("INSERT INTO users (`nickname`, `password`) VALUES('$nick', '$pass')");
 $newask->execute();
+if ($this->login===null) $this->displayLoginForm();
+else $this->displayLogoutForm();
 }
 else {
 	echo '<script type="text/javascript">alert(\'Error : les MDP ne sont pas les mêmes !\');</script></br>';

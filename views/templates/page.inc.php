@@ -21,11 +21,16 @@
 				?>
 
 			</div>
-      <a class="btn disabled" style="position:absolute;top:7%;left:21%;" href="#" name="accueil">Acceuil</a>
+      <a class="btn disabled" style="position:absolute;top:2%;left:15%;" href="#" name="accueil">Acceuil</a>
 		</div>
   </br>
 
 <center>########################</center></br>
+<?php
+
+  if ($this->login===null) $this->null=null;
+  else $this->displayTestForm();
+?>
 </div>
 </br>
 <?php

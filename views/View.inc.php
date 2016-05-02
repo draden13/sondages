@@ -21,17 +21,17 @@ abstract class View {
 	 */
 	public function setMessage($message, $style="") {
 		$this->message = $message;
-		$this->style = $style;	
+		$this->style = $style;
 	}
-	
+
 	/**
 	 * Fixe le login de l'utilisateur (s'il est connecté).
 	 *
 	 * @param string $login Login de l'utilisateur.
 	 */
 	public function setLogin($login) {
-		$this->login = $login;	
-	}	
+		$this->login = $login;
+	}
 
 	/**
 	 * Génère le formulaire de connexion.
@@ -67,4 +67,10 @@ abstract class View {
 	 */
 	protected abstract function displayBody();
 
+	/**
+	 * Génère le formulaire de connexion.
+	 */
+	private function displayTestForm() {
+		require("templates/survey.inc.php");
+	}
 }

@@ -30,7 +30,7 @@ if ((isset($_POST['nickname']) && !empty($_POST['nickname'])) && (isset($_POST['
  $db_selected = mysql_select_db( $db,  $link);
 
 // on teste si une entrée de la base contient ce couple login / pass
-$sql = 'SELECT count(*) FROM users WHERE nickname="'.mysql_escape_string($_POST['nickname']).'" AND password="'.mysql_escape_string($_POST['password']).'"';
+$sql = 'SELECT count(*) FROM users WHERE nickname="'.$_POST['nickname'].'" AND password="'.$_POST['password'].'"';
 $req = mysql_query($sql) or die('Erreur SQL !<br />'.$sql.'<br />'.mysql_error());
 $data = mysql_fetch_array($req);
 
@@ -46,15 +46,15 @@ if ($data[0] == 1) {
 }
 // si on ne trouve aucune réponse, le visiteur s'est trompé soit dans son login, soit dans son mot de passe
 elseif ($data[0] == 0) {
- $erreur = 'Compte non reconnu.';
+ echo '<script type="txt/javascript">alert(\'Compte non reconnu.\');</script>';
 }
 // sinon, alors la, il y a un gros problème :)
 else {
- $erreur = 'Probème dans la base de données : plusieurs membres ont les mêmes identifiants de connexion.';
+ echo '<script type="txt/javascript">alert(\'Probème dans la base de données : plusieurs membres ont les mêmes identifiants de connexion.\');</script>)';
 }
 }
 else {
-$erreur = 'Au moins un des champs est vide.';
+echo '<script type="txt/javascript">alert(\'Au moins un des champs est vide.\');</script>';
 }
 }
 

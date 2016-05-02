@@ -25,7 +25,11 @@ class UpdateUserAction extends Action {
 
 		if ($this->getSessionLogin()===null) {
 			$this->setMessageView("Vous devez être authentifié.");
+			echo
 			return;
+		}
+		else {
+			echo '<script type="txt/javascript">alert(\'Je suis connecté ! [TEST]\');</script>';
 		}
 		$updatePassword = $_POST['updatePassword'];
 		$updatePassword2 = $_POST['updatePassword2'];
