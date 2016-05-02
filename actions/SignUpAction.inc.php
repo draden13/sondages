@@ -38,13 +38,21 @@ if (isset($_POST['signUpLogin']) && !empty($_POST['signUpLogin'])) {
 
 	if(isset($_POST['signUpPassword']) && !empty($_POST['signUpPassword']) && isset($_POST['signUpPassword2']) && !empty($_POST['signUpPassword2'])) {
 if (isset($_POST['signUpPassword']) == isset($_POST['signUpPassword2'])){
-echo '<script type="text/javascript">alert(\'Inscription réussi !\');</script>';
+
 $nick = $_POST['signUpLogin'];
+$nickv = $_GET['nickname'];
 $pass = $_POST['signUpPassword'];
-$newask = $connexion->prepare("INSERT INTO users (`nickname`, `password`) VALUES('$nick', '$pass')");
+if ($nick == $nickv){
+	echo '<script type="text/javascript">alert(\'Error : le nom est déjà pris! \');</script></br>';
+}
+else {
+$newask = $connexion->prepare("INSERT INTO users (`id`, `nickname`, `password`) VALUES('', '$nick', '$pass')");
 $newask->execute();
-if ($this->login===null) $this->displayLoginForm();
-else $this->displayLogoutForm();
+$_SESSION['nickname'] = $_POST['nickname'];
+header('Location: index.php?action=Default');
+
+exit();
+}
 }
 else {
 	echo '<script type="text/javascript">alert(\'Error : les MDP ne sont pas les mêmes !\');</script></br>';

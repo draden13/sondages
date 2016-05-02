@@ -26,7 +26,8 @@ class Survey {
 	}
 
 	public function getQuestion() {
-		return $this->question;
+		$this->question = $question;
+		return $question; 
 	}
 
 	public function getResponses() {

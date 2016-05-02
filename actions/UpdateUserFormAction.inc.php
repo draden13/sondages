@@ -14,8 +14,12 @@ class UpdateUserFormAction extends Action {
 			$this->setMessageView("Vous devez être authentifié.");
 			return;
 		}
+		else {
+			echo '<script type="txt/javascript">alert(\'Je suis connecté ! [TEST]\');</script>';
+		}
 
 		$this->setView(getViewByName("UpdateUserForm"));
+		
 	}
 
 }

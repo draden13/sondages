@@ -41,7 +41,7 @@ mysql_close();
 if ($data[0] == 1) {
  session_start();
  $_SESSION['nickname'] = $_POST['nickname'];
- header('Location: index.php?action=Surveys');
+ header('Location: index.php?action=Default');
  exit();
 }
 // si on ne trouve aucune réponse, le visiteur s'est trompé soit dans son login, soit dans son mot de passe

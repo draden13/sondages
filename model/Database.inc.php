@@ -169,14 +169,35 @@ class Database {
 	     	$dbBd = "sondages";
 	     	$dbPass = "";
 	     	$dbLogin = "root";
-	     	$url = 'mysql:host='.$dbHost.';dbname='.$dbBd;
-	     	$connexion = new PDO($url, $dbLogin, $dbPass);
+	  $connexion = new PDO($url, $dbLogin, $dbPass);
 
-	     	$query_addUser = $connexion->prepare("INSERT INTO users (
-	              	nickname char(20),
-	              	password char(50)
-	         	);");
-	     	$query_addUser->execute();
+		if (isset($_POST['inscription']) && $_POST['inscription'] == 'Créer mon compte') {
+		if (isset($_POST['signUpLogin']) && !empty($_POST['signUpLogin'])) {
+
+			if(isset($_POST['signUpPassword']) && !empty($_POST['signUpPassword']) && isset($_POST['signUpPassword2']) && !empty($_POST['signUpPassword2'])) {
+		if (isset($_POST['signUpPassword']) == isset($_POST['signUpPassword2'])){
+		echo '<script type="text/javascript">alert(\'Inscription réussi !\');</script>';
+		$nick = $_POST['signUpLogin'];
+		$pass = $_POST['signUpPassword'];
+		$newask = $connexion->prepare("INSERT INTO users (`id`, `nickname`, `password`) VALUES('', '$nick', '$pass')");
+		$newask->execute();
+
+		}
+		else {
+			echo '<script type="text/javascript">alert(\'Error : les MDP ne sont pas les mêmes !\');</script></br>';
+		}
+			}
+			else {
+				echo '<script type="text/javascript">alert(\'Error_formulaire_non_complet_!\');</script></br>';
+			}
+		}
+		}
+
+	///     	$query_addUser = $connexion->prepare("INSERT INTO users (
+	///              	nickname char(20),
+	///              	password char(50)
+	///         	);");
+	     ///	$query_addUser->execute();
 
 	  /* TODO END */
 	       return true;

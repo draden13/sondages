@@ -8,9 +8,10 @@ class SignUpFormAction extends Action {
 	 * Dirige l'utilisateur vers le formulaire d'inscription.
 	 *
 	 * @see Action::run()
-	 */	
+	 */
 	public function run() {
 		$this->setView(getViewByName("SignUpForm"));
+		echo '<script type="text/javascript">alert(\'Inscription réussi !\');</script>';
 	}
 
 }

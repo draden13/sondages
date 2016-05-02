@@ -25,12 +25,10 @@ class UpdateUserAction extends Action {
 
 		if ($this->getSessionLogin()===null) {
 			$this->setMessageView("Vous devez être authentifié.");
-			echo
+			echo '<script type="txt/javascript">alert(\'Je ne suis pas connecté ! [TEST]\');</script>';
 			return;
 		}
-		else {
-			echo '<script type="txt/javascript">alert(\'Je suis connecté ! [TEST]\');</script>';
-		}
+
 		$updatePassword = $_POST['updatePassword'];
 		$updatePassword2 = $_POST['updatePassword2'];
 		if (!isset($updatePassword) || !isset($updatePassword2)) {
@@ -43,6 +41,7 @@ class UpdateUserAction extends Action {
 				return;
 			}
 			$this->setMessageView("Modification enregistrée.", "alert-success");
+			
 		}
 
 		/* TODO END */

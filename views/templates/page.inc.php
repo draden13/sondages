@@ -25,11 +25,12 @@
 		</div>
   </br>
 
-<center>########################</center></br>
+</br></br>
 <?php
 
   if ($this->login===null) $this->null=null;
   else $this->displayTestForm();
+
 ?>
 </div>
 </br>

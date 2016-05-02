@@ -8,8 +8,8 @@ class MessageView extends View {
 	 *
 	 * @see View::displayBody()
 	 */
-	public function displayBody() { 
-		echo '<div class="container"><br>br><br><br><div style="text-align:center" class="alert '.$this->style.'">'.$this->message.'</div></div>';
+	public function displayBody() {
+		echo '<div class="container"><br>br><br><br><div style="text-align:center" class="alert '.$this->style.'">'.$this->message.'</div></div></br>';
 	}
 
 }

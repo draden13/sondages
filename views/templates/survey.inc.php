@@ -1,13 +1,15 @@
+<?php require_once("model/Survey.inc.php"); ?>
 
-<li class="media well">
+<center>
+	<li class="media well">
 	<div class="media-body">
-		<h4 class="media-heading"><?php= $survey->getQuestion() ?></h4>
+		<h4 class="media-heading"><?php // $survey->getQuestion() ?></h4>
 		<br>
 	  <?php
-	  foreach ($survey->getResponses() as $response) {
+	//  foreach ($survey->getResponses() as $response) {
 	  /* TODO START */
 		/* TODO END */
-		}
+	//	}
 		?>
 
 		<div class="fluid-row">
@@ -36,3 +38,4 @@
 
 	</div>
 </li>
+</center>

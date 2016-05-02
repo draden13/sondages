@@ -23,7 +23,7 @@ function generateInputForResponse($n) {
 		function setLogin($login) {
 		 $this->login = $login;
 
-			if ($this->message!=="")
+			//if ($this->message!=="")
 			echo '<div class="alert '.$this->style.'">'.$this->message.'</div>';
 		} ?>
 		<div class="control-group">

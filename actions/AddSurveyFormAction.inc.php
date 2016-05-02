@@ -24,7 +24,7 @@ class AddSurveyFormAction extends Action {
 	 * @see Action::run()
 	 */
 	 public function setLogin($login) {
- 		$this->login = $login;
+ 		 $login = $this->login ;
 	 }
 
 	public function run() {
