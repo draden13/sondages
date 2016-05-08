@@ -2,6 +2,7 @@
 
 function generateInputForResponse($n) {
 	?>
+	<meta charset="utf-8">
 	<div class="control-group">
 		<label class="control-label" for="responseSurvey<?php echo $n; ?>">Réponse <?php echo $n; ?></label>
 		<div class="controls">
@@ -12,8 +13,7 @@ function generateInputForResponse($n) {
 }
 
 ?>
-
-<form method="post" action="index.php?action=AddSurvey" class="modal">
+<form method="post" action="index.php?action=AddSurvey" class="modal"></br>
 	<div class="modal-header">
 		<h3>Creation d'un sondage</h3>
 	</div>

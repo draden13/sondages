@@ -17,7 +17,7 @@ class SearchAction extends Action {
 	public function run() {
 		/* TODO START */
 
-
+		$this->setMessageView("Partie recherche non codée encore", "alert-error");
 
 		/* TODO END */
 	}

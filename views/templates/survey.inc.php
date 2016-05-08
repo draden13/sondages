@@ -1,5 +1,5 @@
 <?php require_once("model/Survey.inc.php"); ?>
-
+</br>
 <center>
 	<li class="media well">
 	<div class="media-body">

@@ -42,16 +42,14 @@ class AddSurveyAction extends Action {
 			if (isset($_POST['questionSurvey']) && !empty($_POST['questionSurvey'])) {
 
 	 			if(isset($_POST['responseSurvey1']) && !empty($_POST['responseSurvey1']) && isset($_POST['responseSurvey2']) && !empty($_POST['responseSurvey2'])) {
-
-	echo '<script type="text/javascript">alert(\'Sondage envoye !\');</script>';
 	$owner = $_SESSION['nickname'];
 	$ask = $_POST['questionSurvey'];
 	$newask = $connexion->prepare("INSERT INTO surveys (`id`, `owner`, `question`) VALUES('', '$owner', '$ask')");
 	$newask->execute();
-
+$this->setMessageView("Votre sondage a été enregistré.", "alert-success");
 				}
 				else {
-					echo '<script type="text/javascript">alert(\'Error_formulaire_non_complet_!\');</script></br>';
+					$this->setMessageView("Votre sondage est incomplet.", "alert-error");
 				}
 			}
 		}

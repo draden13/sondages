@@ -46,15 +46,15 @@ if ($data[0] == 1) {
 }
 // si on ne trouve aucune réponse, le visiteur s'est trompé soit dans son login, soit dans son mot de passe
 elseif ($data[0] == 0) {
- echo '<script type="txt/javascript">alert(\'Compte non reconnu.\');</script>';
+$this->setMessageView("Erreur, compte non reconnu.", "alert-error");
 }
 // sinon, alors la, il y a un gros problème :)
 else {
- echo '<script type="txt/javascript">alert(\'Probème dans la base de données : plusieurs membres ont les mêmes identifiants de connexion.\');</script>)';
+ $this->setMessageView("Probème dans la base de données : plusieurs membres ont les mêmes identifiants de connexion.", "alert-error");
 }
 }
 else {
-echo '<script type="txt/javascript">alert(\'Au moins un des champs est vide.\');</script>';
+$this->setMessageView("Au moins un des champs est vide.", "alert-error");
 }
 }
 

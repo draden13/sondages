@@ -1,4 +1,4 @@
-<?php
+:<?php
 
 require_once("actions/Action.inc.php");
 
@@ -22,10 +22,10 @@ class UpdateUserAction extends Action {
 	 */
 	public function run() {
 		/* TODO START */
+$this->setMessageView("L'envoi du formulaire n'est pas terminé (updateUser dans database.inc.php non codée)", "alert-error");
 
 		if ($this->getSessionLogin()===null) {
-			$this->setMessageView("Vous devez être authentifié.");
-			echo '<script type="txt/javascript">alert(\'Je ne suis pas connecté ! [TEST]\');</script>';
+			$this->setMessageView("Vous devez être authentifié.", "alert-error");
 			return;
 		}
 
@@ -34,20 +34,21 @@ class UpdateUserAction extends Action {
 		if (!isset($updatePassword) || !isset($updatePassword2)) {
 			$this->setUpdateUserFormView("Vous devez remplir le formulaire.");
 			return;
-			$res = $this->database->updateUser($this->getSessionLogin(),
-			$updatePassword);
+			$res = $this->database->updateUser($this->getSessionLogin(),$updatePassword);
 			if ($res!==true) {
 				$this->setUpdateUserFormView($res);
+
 				return;
 			}
 			$this->setMessageView("Modification enregistrée.", "alert-success");
-			
+
 		}
 
 		/* TODO END */
 	}
 
 	private function setUpdateUserFormView($message) {
+
 		$this->setView(getViewByName("UpdateUserForm"));
 		$this->getView()->setMessage($message, "alert-error");
 	}

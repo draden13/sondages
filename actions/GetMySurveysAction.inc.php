@@ -14,7 +14,7 @@ class GetMySurveysAction extends Action {
 	 */
 	public function run() {
 		/* TODO START */
-	  
+	$this->setMessageView("Partie non encore codée", "alert-error");
 		/* TODO END */
 	}
 

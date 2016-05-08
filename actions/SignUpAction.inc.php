@@ -40,26 +40,25 @@ if (isset($_POST['signUpLogin']) && !empty($_POST['signUpLogin'])) {
 if (isset($_POST['signUpPassword']) == isset($_POST['signUpPassword2'])){
 
 $nick = $_POST['signUpLogin'];
-$nickv = $_GET['nickname'];
+//$sql = 'SELECT * FROM users WHERE nickname="'.$_POST['signUpLogin'].'"';
 $pass = $_POST['signUpPassword'];
-if ($nick == $nickv){
-	echo '<script type="text/javascript">alert(\'Error : le nom est déjà pris! \');</script></br>';
-}
-else {
+//if ($sql !== $nick){
+//	$this->setMessageView("Ce pseudo est déjà pris.", "alert-error");
+//}
+//else {
 $newask = $connexion->prepare("INSERT INTO users (`id`, `nickname`, `password`) VALUES('', '$nick', '$pass')");
 $newask->execute();
-$_SESSION['nickname'] = $_POST['nickname'];
-header('Location: index.php?action=Default');
+$_SESSION['nickname'] = $_POST['signUpLogin'];
+$this->setMessageView("Votre inscription a été enregistré.", "alert-success");
 
-exit();
-}
+//}
 }
 else {
-	echo '<script type="text/javascript">alert(\'Error : les MDP ne sont pas les mêmes !\');</script></br>';
+	$this->setMessageView("Les mots de passes ne sont pas identiques", "alert-error");
 }
 	}
 	else {
-		echo '<script type="text/javascript">alert(\'Error_formulaire_non_complet_!\');</script></br>';
+		$this->setMessageView("Le formulaire est incomplet !", "alert-error");
 	}
 }
 }

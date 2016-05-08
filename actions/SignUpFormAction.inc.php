@@ -11,7 +11,7 @@ class SignUpFormAction extends Action {
 	 */
 	public function run() {
 		$this->setView(getViewByName("SignUpForm"));
-		echo '<script type="text/javascript">alert(\'Inscription réussi !\');</script>';
+		
 	}
 
 }

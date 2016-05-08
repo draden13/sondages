@@ -46,6 +46,7 @@ class Database {
 		$connexion = new PDO($url, $dbLogin, $dbPass);
 
 		$query_1 = $connexion->prepare("		CREATE TABLE IF NOT EXISTS users (
+				 id integer primary key auto_increment, -- j'ai mis un id pour l'organisation de la table, plus facile a gerer--
 				 nickname char(20),
 				 password char(50)
 			);");
@@ -215,6 +216,9 @@ class Database {
 	 */
 	public function updateUser($nickname, $password) {
 		/* TODO START */
+
+
+
 		/* TODO END */
 	  return true;
 	}
@@ -268,8 +272,23 @@ class Database {
 	 * @param string $owner Pseudonyme de l'utilisateur.
 	 * @return array(Survey)|boolean Sondages trouvés par la fonction ou false si une erreur s'est produite.
 	 */
-	public function loadSurveysByOwner($owner) {
+	public function  loadSurveysByOwner($owner) {
 		/* TODO START */
+
+		$surveys = R::find('survey', 'owner = ?', array($_SESSION['id']));
+		foreach ($surveys as &$survey) {
+		$total = 0;
+		foreach ($survey->ownResponse as $r)
+		$total += $r->count;
+		if ($total===0) {
+		foreach ($survey->ownResponse as &$r)
+		$r->percentage = 0;
+		} else {
+		foreach ($survey->ownResponse as &$r)
+		$r->percentage = (100*$r->count)/$total;
+		}
+		}
+
 		/* TODO END */
 	}
 
